@@ -1,0 +1,46 @@
+my_simple_controllers:
+  joints: {
+    type: string_array,
+    default_value: [],
+    description: "Names of joints used by the controller",
+    read_only: true,
+    validation: {
+      unique<>: null,
+    }
+  }
+  state_interfaces: {
+    type: string_array,
+    default_value: [],
+    description: "Names of state interfaces to claim",
+    read_only: true,
+    validation: {
+      unique<>: null,
+    }
+  }
+  state_publish_rate: {
+    type: double,
+    default_value: 100.0,
+    description: "Frequency to publish state messages",
+    read_only: true,
+    validation: {
+      gt_eq: [1.0]
+    }
+  }
+  base_frame: {
+    type: string,
+    default_value: "base_link",
+    description: "Root frame of the kinematic chain used for forward kinematics",
+    read_only: true,
+  }
+  tip_frame: {
+    type: string,
+    default_value: "tool_link",
+    description: "Tip frame (end effector) of the kinematic chain",
+    read_only: true,
+  }
+  fk_frame: {
+    type: string,
+    default_value: "state_controller_fk",
+    description: "Name of the TF frame published with the forward kinematics result",
+    read_only: true,
+  }

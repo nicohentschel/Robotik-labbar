@@ -1,0 +1,7 @@
+# Request
+string frame_name
+geometry_msgs/Pose target_pose
+---
+# Response
+bool success
+sensor_msgs/JointState solution
